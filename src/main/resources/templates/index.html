@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice to Tweet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div th:if="${user}">
+        <h1>Press the Button and Speak</h1>
+        <button id="speakButton" class="btn">
+            <i style="color: white" class="fas fa-microphone"></i>
+        </button>
+        <div class="user-info">
+            <h5>Currently logged in as:</h5>
+            <p th:text="${user}"></p>
+            <button onclick="window.location.href='/twitter/logout'" class="btn btn-twitter">
+                Log out
+            </button>
+        </div>
+    </div>
+    <div th:unless="${user}">
+        <h1>Welcome to Voice to Tweet</h1>
+        <p>Please sign in to start using the app.</p>
+        <button onclick="window.location.href='/twitter/auth'" class="btn btn-twitter">
+            <i class="fab fa-twitter"></i> Sign in with Twitter
+        </button>
+    </div>
+</div>
+
+<script th:if="${user}" src="/microphone.js"></script>
+</body>
+</html>
