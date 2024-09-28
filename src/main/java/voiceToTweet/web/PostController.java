@@ -24,9 +24,6 @@ public class PostController {
     private String apiKey;
     private String text;
 
-    @Autowired
-    private TwitterController twitterController;
-
     @PostMapping("/audio")
     public String audio(@RequestParam("file") MultipartFile file, HttpSession session) {
         try {
