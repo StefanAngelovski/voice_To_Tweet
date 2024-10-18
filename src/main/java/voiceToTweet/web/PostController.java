@@ -20,8 +20,7 @@ import java.nio.file.Path;
 
 @Controller
 public class PostController {
-    @Value("${openai.api.key}")
-    private String apiKey;
+    private String apiKey = System.getenv("OPENAI_API_KEY");
     private String text;
 
     @PostMapping("/audio")

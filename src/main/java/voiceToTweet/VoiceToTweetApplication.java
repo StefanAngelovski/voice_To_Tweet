@@ -14,11 +14,8 @@ public class VoiceToTweetApplication {
 		SpringApplication.run(VoiceToTweetApplication.class, args);
 	}
 
-	@Value("CONSUMER-KEY")
-	private String consumerKey;
-
-	@Value("CONSUMER-SECRET")
-	private String consumerSecret;
+	private String consumerKey = System.getenv("TWITTER_CONSUMER_KEY");
+	private String consumerSecret = System.getenv("TWITTER_CONSUMER_SECRET");
 
 	@Bean
 	public Twitter twitter() {
