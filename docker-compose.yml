@@ -1,0 +1,7 @@
+services:
+  voice-to-tweet:
+    image: ghcr.io/42dotmk/voice-to-tweet:latest
+    env_file: .env
+    ports:
+      - "12341:8080"
+
